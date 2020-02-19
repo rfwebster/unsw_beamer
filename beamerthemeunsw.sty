@@ -1,0 +1,153 @@
+\RequirePackage{tikz, graphicx, transparent}
+
+\usecolortheme{unsw}
+\usefonttheme{unsw}
+
+
+\newlength\themargin
+\setlength\themargin{0.055\paperheight}
+\newlength\logoheight
+\setlength\logoheight{2.35cm}
+\newlength\logowidth
+\setlength\logowidth{0.855\logoheight}
+
+\newlength\thegutter
+\setlength\thegutter{0.5\themargin}
+
+% Plenty of room
+\setbeamersize{text margin left=\themargin,%
+			   text margin right=\themargin,}
+
+
+
+\setbeamertemplate{background}{
+	\ifnum\thepage>1\relax% Not the title page
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		
+	\end{tikzpicture}
+	\else% Title page
+	\begin{tikzpicture}
+	
+	\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			{\transparent{0.4} \inserttitlegraphic}%
+			}
+		};
+
+	\end{tikzpicture}
+	\fi
+}
+\setbeamertemplate{title page}{
+	\nointerlineskip%
+	\begin{tikzpicture}
+	\useasboundingbox (\themargin,0) rectangle(\the\paperwidth,\the\paperheight);
+		\fill[color=UNSWYellow, anchor=south west] (0,6) rectangle ++(\themargin+\logowidth+1.5\thegutter,2.6);
+		\node[anchor=south west] at (\thegutter ,6) {\includegraphics[height=\logoheight]{logo-p}};
+		
+		\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+			  anchor=south west] 
+			  at ++(\themargin + \logowidth + 3.5\thegutter,6.8) {%
+			\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute%
+		};
+		\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+		anchor=south west] 
+		at ++(\themargin + \logowidth + 3.5\thegutter,6.2) {%
+				\usebeamerfont{title}\usebeamercolor{title}\inserttitle%
+		};
+		\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+		anchor=south west] 
+		at ++(\themargin + \logowidth + 3.5\thegutter,2) {%
+				\usebeamerfont{author}\insertauthor%
+		};			
+		\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+		anchor=south west] 
+		at ++(\themargin + \logowidth + 3.5\thegutter,1) {%
+				\usebeamerfont{date}\insertdate%
+		};
+	\end{tikzpicture}
+
+}
+\newcommand{\sectionframe}{{
+		\setbeamertemplate{background}{
+		}
+		\frame{\sectionpage}
+}}
+\setbeamertemplate{section page}{
+		\nointerlineskip%
+			\begin{tikzpicture}
+			\useasboundingbox (\themargin,0) rectangle(\the\paperwidth,\the\paperheight);
+			\fill[color=UNSWYellow, anchor=south west] (0,6) rectangle ++(\themargin+\logowidth+1.5\thegutter,2.6);
+			\node[anchor=south west] at (\thegutter ,6) {\includegraphics[height=\logoheight]{logo-p}};
+
+			\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+			anchor=south west] 
+			at ++(\themargin + \logowidth + 3.5\thegutter,6.2) {%
+				\usebeamerfont{title}\usebeamercolor{title}\insertsectionhead%
+			};
+		
+		\end{tikzpicture}
+
+}
+\newcommand{\subsectionframe}{{
+		\setbeamertemplate{background}{
+		}
+		\frame{\subsectionpage}
+}}
+\setbeamertemplate{subsection page}{
+	\nointerlineskip%
+	\begin{tikzpicture}
+	\useasboundingbox (\themargin,0) rectangle(\the\paperwidth,\the\paperheight);
+	\fill[color=UNSWYellow, anchor=south west] (0,6) rectangle ++(\themargin+\logowidth+1.5\thegutter,2.6);
+	\node[anchor=south west] at (\thegutter ,6) {\includegraphics[height=\logoheight]{logo-p}};
+	
+	\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+	anchor=south west] 
+	at ++(\themargin + \logowidth + 3.5\thegutter,6.8) {%
+		\usebeamerfont{subsection title}\usebeamercolor{subsection title}\insertsectionhead%
+	};
+	\node[text width=\textwidth - \themargin - \logowidth - 3.5\thegutter, 
+	anchor=south west] 
+	at ++(\themargin + \logowidth + 3.5\thegutter,6.2) {%
+		\usebeamerfont{section title}\usebeamercolor{section title}\insertsubsectionhead%
+	};
+	
+	\end{tikzpicture}
+	
+}
+\setbeamertemplate{frametitle}{%
+	\nointerlineskip%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1cm,dp=0.2cm]{frametitle}
+		\hspace*{2ex}\insertframetitle%
+	\end{beamercolorbox}%
+}
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize subsubitem}[square]
+\setbeamertemplate{navigation symbols}{
+}
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=2em]{title in head/foot}%
+			\inserttitle
+		\end{beamercolorbox}%
+
+		\begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+			%\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber%\hspace*{2ex} 
+		\end{beamercolorbox}%	
+	    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=2em]{mycolor}%
+			\usebeamercolor[fg]{navigation symbols}\insertslidenavigationsymbol%
+			\insertframenavigationsymbol%
+			\insertsubsectionnavigationsymbol%
+			\insertsectionnavigationsymbol%
+			\insertdocnavigationsymbol%
+			\insertbackfindforwardnavigationsymbol%
+		\end{beamercolorbox}%
+}
+
+}

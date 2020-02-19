@@ -1,0 +1,127 @@
+\documentclass[11 pt, 
+			   aspectratio=169
+			   %aspectratio=43
+			   ]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\titlegraphic{\includegraphics[width=\paperwidth,keepaspectratio]{background}}
+\title{Main Heading}
+\date{\today}
+\author[shortname]{Sir Philip Baxter}
+\institute[EMU]{Optimal Position for Faculty/School Name}
+
+
+
+\usetheme{unsw}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Acknowledgement of Country}
+
+	Acknowledgement of Country is where other people acknowledge and show respect for the traditional custodians of the land on which the event is taking place.
+	
+	Such an Acknowledgement of Country can be used exclusively if an Elder or other appropriate member of the Aboriginal or Torres Strait Islander communities is not available to perform a Welcome to Country.
+	
+	In the City's local area when opening an event, or at the start of a speech, a statement like this can be used:
+	\vfill
+	\begin{quote}
+	``I would like to show my respects and acknowledge the Bedegal people who are the Traditional Custodians of the Land, of Elders past and present on which this meeting takes place.'' 
+	\end{quote}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+
+
+\section{Section 1}
+\subsection{Subsection 1.1}
+
+\sectionframe
+\subsectionframe
+
+
+
+\begin{frame}
+	\frametitle{First Slide}
+		\begin{block}{Block Title}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+			sed do eiusmod tempor incididunt ut labore et 
+			dolore magna aliqua.
+		\end{block}
+	
+		\begin{alertblock}{Alert Block Title}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+			sed do eiusmod tempor incididunt ut labore et 
+			dolore magna aliqua.
+		\end{alertblock}
+	
+		\begin{example}
+			This is what an example looks like
+		\end{example}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Second Slide}
+	This is a numbered list
+	\begin{enumerate}
+		\item Item 1
+		\begin{enumerate}
+			\item SubItem 1
+			\item SubItem 2
+		\end{enumerate}
+		\item Item 2
+		\item Item 3
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Third Slide}
+	This is a list
+	\begin{itemize}
+		\item Item 1
+		\begin{itemize}
+			\item SubItem 1
+			\item SubItem 2
+		\end{itemize}
+		\item Item 2
+		\item Item 3
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fourth Slide}
+	\begin{figure}
+		\includegraphics[height=0.5\textheight]{lion}
+		\caption{lion!}
+	\end{figure}
+	Can add images to slides like this...
+\end{frame}
+
+\begin{frame}
+	\frametitle{Fifth Slide}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[height=0.5\textheight]{lion}
+			\caption{another lion!!}
+		\end{figure}
+		\column{0.5\textwidth}
+		...or in columns like this
+	\end{columns}
+\end{frame}
+
+\end{document}
